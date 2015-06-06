@@ -1,8 +1,15 @@
 <?php
 session_start();
+	
+if(!isset($_SESSION['username']))
+{
+	header("Location: login.php");
+}
+
+$uname = $_SESSION["username"];
 
 	$output = "";
-	$output = "<table><tr><th>Rank</th><th>Movie</th></tr>";
+	$output = "<table><tr><th>Rank</th><th>Movie</th><th>Watched?</th></tr>";
 
 	$mysqli = new mysqli("localhost", "root", "", "testdb");
 	if ($mysqli->connect_errno)
@@ -11,12 +18,13 @@ session_start();
 	}
 
 
-	$stmt = $mysqli->prepare("SELECT title, rank, year FROM top100");
+	$stmt = $mysqli->prepare("SELECT id, title, rank, year FROM top100 where id NOT IN (SELECT movieid from watched where username=?)");
+	$stmt->bind_param("s", $uname);
 	$stmt->execute();
-	$stmt->bind_result($title, $rank, $year);
+	$stmt->bind_result($id, $title, $rank, $year);
 	while ($stmt->fetch())
 	{
-		$output .= "<tr><td>$rank</td><td>$title ($year)</td></tr>";
+		$output .= "<tr><td>$rank</td><td>$title ($year)</td><td><input type=\"checkbox\" name=\"id\" value=$id onchange=\"watched(this.value)\"></td></tr>";
 	}
 	$stmt->close();
 
