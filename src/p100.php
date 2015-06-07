@@ -9,7 +9,7 @@ if(!isset($_SESSION['username']))
 $uname = $_SESSION["username"];
 
 	$output = "";
-	$output = "<table><tr><th>Rank</th><th>Movie</th><th>Watched?</th></tr>";
+	$output = "<table class=\"pure-table pure-table-horizontal\"><thead align=\"left\"><tr><th>Rank</th><th>Movie</th><th>Watched?</th></tr></thead>";
 
 	$mysqli = new mysqli("localhost", "root", "", "testdb");
 	if ($mysqli->connect_errno)

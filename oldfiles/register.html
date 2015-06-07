@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Final Project</title>
+		<script>
+		
+			function checkName(str)
+			{
+				
+				if (str.length == 0)
+				{
+					document.getElementById("valid").innerHTML = "empty";
+				}
+				else
+				{
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.onreadystatechange = function() {
+						if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+						{
+							document.getElementById("valid").innerHTML = xmlhttp.responseText;
+						}
+					}
+					xmlhttp.open("GET", "checkReg.php?username=" + str, true);
+					xmlhttp.send();
+				}
+				
+			}
+
+			function vForm()
+			{
+				try {
+				var x = document.forms["reg"]["pass"].value;
+				var y = document.forms["reg"]["cpass"].value;
+
+				if (document.getElementById("valid").innerHTML == 'Taken')
+				{
+					alert("That username is already taken. Please try again.");
+					//document.getElementById("reg").reset();
+					return false;
+				}
+
+				else if (x != y)
+				{
+					alert("Password and Confirm Password must match. Please try again.");
+					//document.getElementById("reg").reset();
+					return false;
+				}
+
+				else
+				{
+					return true;
+				}
+			} catch (e) {
+				console.error(e.message);
+				return false;
+			}
+
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<form name="reg" onsubmit="return vForm()" action="newReg.php" method="post">
+			Username: <input type="text" name="username" onchange="checkName(this.value)" required><br>
+			Password: <input type="password" name="pass" required><br>
+			Confirm Password: <input type="password" name="cpass" required><br>
+			<input type="submit" value="Submit"><br>
+		</form>
+		<div id="valid"></div>
+
+	
+
+	</body>
+</html>

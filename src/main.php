@@ -16,6 +16,7 @@
 		<head>
 			<meta charset=\"UTF-8\">
 			<title>Final Project</title>
+			<link rel=\"stylesheet\" href=\"http://yui.yahooapis.com/pure/0.6.0/pure-min.css\">
 			
 			
 			<script>
@@ -128,9 +129,9 @@
 		<body>
 			<h1>Hey $uname, Look at these movies!</h1>
 <br>
-<table>
+<table align=\"center\">
 <tr>
-<td style=\"vertical-align:top\"><div id=\"top100\"></div></td><td style=\"vertical-align:top\"><div id=\"watched\"></div></td></tr>
+<td style=\"vertical-align:top\"><div id=\"top100\"></div></td><td>     &nbsp;     </td><td style=\"vertical-align:top\"><div id=\"watched\"></div></td></tr>
 </table>
 				</body>
 

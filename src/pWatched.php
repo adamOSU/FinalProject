@@ -15,7 +15,7 @@ if ($mysqli->connect_errno)
 }
 
 $output = "";
-$output = "<table><tr><th>Rank</th><th>Movie</th><th>Remove?</th></tr>";
+$output = "<table class=\"pure-table pure-table-horizontal\"><thead align=\"left\"><tr><th>Rank</th><th>Movie</th><th>Remove?</th></tr></thead>";
 
 $stmt = $mysqli->prepare("SELECT top100.id, top100.title, top100.rank, top100.year FROM top100 INNER JOIN watched on top100.id=watched.movieid where watched.username=? order by CAST(top100.rank AS SIGNED)");
 $stmt->bind_param("s", $uname);

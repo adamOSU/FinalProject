@@ -1,15 +1,74 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Assignment 4</title>
-	</head>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<body>
-		<form action="checkLogin.php" method="post">
-			Username: <input type="text" name="username"><br>
-			Password: <input type="password" name="pass"><br>
-			<input type="submit" value="Submit"><br>
-		</form>
-	</body>
+    <title>Top 100 Movie Tracker</title>
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+<!--[if lte IE 8]>
+  
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+  
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+  
+<!--<![endif]-->
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  
+<!--[if lte IE 8]>
+  <link rel="stylesheet" href="marketing-old-ie.css">
+<![endif]-->
+ <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="marketing.css">
+ <!--<![endif]-->
+</head>
+
+<body>
+
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="">Top 100 Movie Tracker</a>
+
+    </div>
+</div>
+
+
+
+
+<div class="splash-container">
+    <div class="splash">
+        <form class="pure-form pure-form-stacked" action="checkLogin.php" method="post">
+            <fieldset>
+            
+                <div class="pure-control-group">
+                    <label for="name">Username</label> 
+                    <input type="text" name="username" required>
+                </div>
+
+
+                <div class="pure-control-group">
+                    <label for="name">Password</label> 
+                    <input type="password" name="pass" required>
+                </div>
+
+                <div class="pure-controls">
+                    <input type="submit" value="Submit" class="pure-button pure-button-primary" style="color:black">
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+</body>
 </html>
