@@ -1,9 +1,10 @@
 <?php
+//This is the file that deletes an entry in the watched database if a user has clicked on a red x to remove an item from their watched list.
 session_start();
 	
 if(!isset($_SESSION['username']))
 {
-	header("Location: login.php");
+	header("Location: index.html");
 }
 
 $uname = $_SESSION["username"];

@@ -1,5 +1,12 @@
 <?php
+//If the user has successfully put in a unique username and matching passwords, their information is added to the user database and they are redirected to the main user page to start to use
+//the actual movie database.
 session_start();
+
+if(!isset($_SESSION['username']))
+{
+	header("Location: index.html");
+}
 
 $uname = $_POST["username"];
 $pword = $_POST["pass"];
@@ -18,8 +25,4 @@ $stmt->execute();
 $stmt->close();
 
 header("Location: main.php");
-
-
-
-
 ?>

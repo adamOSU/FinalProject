@@ -1,39 +1,37 @@
 <!doctype html>
 <html lang="en">
-<head>
+<head><!--I relied heavily on the Pure CSS templates for the design and CSS for this website.  While I have customized different elements, the template I used can be found at  http://purecss.io/layouts/-->
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top 100 Movie Tracker</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+      
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+      
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+      
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+      
+    <!--<![endif]-->
 
-<!--[if lte IE 8]>
-  
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
-  
-<![endif]-->
-<!--[if gt IE 8]><!-->
-  
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-  
-<!--<![endif]-->
-
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-  
-<!--[if lte IE 8]>
-  <link rel="stylesheet" href="marketing-old-ie.css">
-<![endif]-->
- <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="marketing.css">
- <!--<![endif]-->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="marketing-old-ie.css">
+    <![endif]-->
+     <!--[if gt IE 8]><!-->
+      <link rel="stylesheet" href="marketing.css">
+     <!--<![endif]-->
 
     <script>
         
-            function checkName(str)
+            function checkName(str) //This function uses an AJAX call to check if the username they have entered is already taken.  It updates the page to reflect if it is.
             {
                 
-                if (str.length == 0)
+               if (str.length == 0)
                 {
                     document.getElementById("valid").innerHTML = "empty";
                 }
@@ -52,23 +50,21 @@
                 
             }
 
-            function vForm()
+            function vForm()  //This function checks to make sure that the passwords match and the username isn't taken.  If they match and the username is unique, it allows the form to move forward.
             {
                 try {
                 var x = document.forms["reg"]["pass"].value;
                 var y = document.forms["reg"]["cpass"].value;
 
-                if (document.getElementById("valid").innerHTML == 'Taken')
+                if (document.getElementById("valid").innerHTML == '<p style="color:red">Username already taken. Please try another.</p>')
                 {
                     alert("That username is already taken. Please try again.");
-                    //document.getElementById("reg").reset();
                     return false;
                 }
 
                 else if (x != y)
                 {
                     alert("Password and Confirm Password must match. Please try again.");
-                    //document.getElementById("reg").reset();
                     return false;
                 }
 
@@ -89,7 +85,7 @@
 
 <div class="header">
     <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="">Top 100 Movie Tracker</a>
+        <a class="pure-menu-heading" href="index.html">Top 100 Movie Tracker</a>
 
     </div>
 </div>

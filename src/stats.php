@@ -1,9 +1,10 @@
 <?php
+//This file calculates and prints all of the statistics found on the main.php page.
 session_start();
 	
 if(!isset($_SESSION['username']))
 {
-	header("Location: login.php");
+	header("Location: index.html");
 }
 
 $uname = $_SESSION["username"];
@@ -18,7 +19,7 @@ $output = "<table class=\"pure-table pure-table-horizontal\">";
 	}
 
 
-	$stmt = $mysqli->prepare("SELECT COUNT(DISTINCT movieid) from watched where movieid<11 and username=?");
+	$stmt = $mysqli->prepare("SELECT COUNT(DISTINCT movieid) from watched where movieid<11 and username=?"); //This counts how many of the top 10 movies a user has seen
 	$stmt->bind_param("s", $uname);
 	$stmt->execute();
 	$stmt->bind_result($totten);
@@ -31,7 +32,7 @@ $output = "<table class=\"pure-table pure-table-horizontal\">";
 	$output .= "<tr><td>You've watched $topTen of the Top 10</td></tr>";
 
 
-	$stmt = $mysqli->prepare("SELECT COUNT(DISTINCT movieid) from watched where username=?");
+	$stmt = $mysqli->prepare("SELECT COUNT(DISTINCT movieid) from watched where username=?");  //This counts how many total unique movies a person has seen
 	$stmt->bind_param("s", $uname);
 	$stmt->execute();
 	$stmt->bind_result($total);
@@ -43,7 +44,7 @@ $output = "<table class=\"pure-table pure-table-horizontal\">";
 	$totPer = $totPer."%";
 	$output .= "<tr><td>You've watched $totPer of the Top 100</td></tr>";
 
-	$stmt = $mysqli->prepare("SELECT MIN(top100.year) FROM top100 INNER JOIN watched on top100.id=watched.movieid where watched.username=?");
+	$stmt = $mysqli->prepare("SELECT MIN(top100.year) FROM top100 INNER JOIN watched on top100.id=watched.movieid where watched.username=?");  //This finds the oldest movie a person has watched
 	$stmt->bind_param("s", $uname);
 	$stmt->execute();
 	$stmt->bind_result($minYear);
@@ -55,7 +56,7 @@ $output = "<table class=\"pure-table pure-table-horizontal\">";
 	
 	$output .= "<tr><td>Oldest movie watched: $minWatch</td></tr>";
 
-	$stmt = $mysqli->prepare("SELECT MAX(top100.year) FROM top100 INNER JOIN watched on top100.id=watched.movieid where watched.username=?");
+	$stmt = $mysqli->prepare("SELECT MAX(top100.year) FROM top100 INNER JOIN watched on top100.id=watched.movieid where watched.username=?");  //This finds the most recent top 100 movie a person has watched
 	$stmt->bind_param("s", $uname);
 	$stmt->execute();
 	$stmt->bind_result($maxYear);

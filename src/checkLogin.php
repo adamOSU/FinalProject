@@ -1,4 +1,6 @@
 <?php
+//This file takes the login username and password and checks it against the users database.  If they match, it redirects them to the main user page.  If it doesn't match, it alerts then and they are 
+//auto-redirected to the login page to try again.
 session_start();
 
 $uname = $_POST["username"];

@@ -1,9 +1,10 @@
 <?php
+//This php function takes the username and ID of the movie and adds it to the watched movie database to track what a user has watched.
 session_start();
 	
 if(!isset($_SESSION['username']))
 {
-	header("Location: login.php");
+	header("Location: index.html");
 }
 
 $uname = $_SESSION["username"];

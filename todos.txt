@@ -1,12 +1,6 @@
-create userWatched table (id, username, movieid, watchdate)
 
-create printWatched function
-	add checkboxes to output
-		create function that removes movie from userWatched table
-change p100.php to only print movies not watched
 
-add checkboxes to p100 output
-	create function that adds checked movie to userWatched table
+
 
 
 create stats blurb
