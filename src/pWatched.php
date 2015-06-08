@@ -23,7 +23,9 @@ $stmt->execute();
 $stmt->bind_result($id, $title, $rank, $year);
 while ($stmt->fetch())
 {
-	$output .= "<tr><td>$rank</td><td>$title ($year)</td><td><input type=\"checkbox\" name=\"wid\" value=$id onchange=\"wRemove(this.value)\"></td></tr>";
+	//$output .= "<tr><td>$rank</td><td>$title ($year)</td><td><input type=\"checkbox\" name=\"wid\" value=$id onchange=\"wRemove(this.value)\"></td></tr>";
+	$output .= "<tr><td><b>$rank</b></td><td>$title ($year)</td><td><a href=\"#\" name=\"id\" value=$id onclick=\"wRemove($id)\"><img src=\"img/Red_X.png\" height=\"18\" width=\"18\"></a></td></tr>";
+
 }
 
 $output .= "</table>";

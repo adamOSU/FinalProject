@@ -24,7 +24,8 @@ $uname = $_SESSION["username"];
 	$stmt->bind_result($id, $title, $rank, $year);
 	while ($stmt->fetch())
 	{
-		$output .= "<tr><td>$rank</td><td>$title ($year)</td><td><input type=\"checkbox\" name=\"id\" value=$id onchange=\"watched(this.value)\"></td></tr>";
+		//$output .= "<tr><td>$rank</td><td>$title ($year)</td><td><input type=\"checkbox\" name=\"id\" value=$id onchange=\"watched(this.value)\"></td></tr>";
+		$output .= "<tr><td><b>$rank</b></td><td>$title ($year)</td><td><a href=\"#\" name=\"id\" value=$id onclick=\"watched($id)\"><img src=\"img/Check_mark.png\" height=\"21\" width=\"21\"></a></td></tr>";
 	}
 	$stmt->close();
 

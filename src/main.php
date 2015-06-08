@@ -43,6 +43,16 @@
 					xmlhttp2.open(\"GET\", \"pWatched.php\", true);
 					xmlhttp2.send();
 
+					var xmlhttp3 = new XMLHttpRequest();
+					xmlhttp3.onreadystatechange = function() {
+						if (xmlhttp3.readyState == 4 && xmlhttp3.status == 200)
+						{
+							document.getElementById(\"stats\").innerHTML = xmlhttp3.responseText;
+						}
+					}
+					xmlhttp3.open(\"GET\", \"stats.php\", true);
+					xmlhttp3.send();
+
 				}
 				
 				function watched(str)
@@ -79,7 +89,17 @@
 					}
 					xmlhttp3.open(\"GET\", \"p100.php\", true);
 					xmlhttp3.send();
-					}, 100);
+
+					var xmlhttp4 = new XMLHttpRequest();
+					xmlhttp4.onreadystatechange = function() {
+						if (xmlhttp4.readyState == 4 && xmlhttp4.status == 200)
+						{
+							document.getElementById(\"stats\").innerHTML = xmlhttp4.responseText;
+						}
+					}
+					xmlhttp4.open(\"GET\", \"stats.php\", true);
+					xmlhttp4.send();
+					}, 200);
 				}
 
 			</script>
@@ -120,20 +140,44 @@
 					}
 					xmlhttp3.open(\"GET\", \"p100.php\", true);
 					xmlhttp3.send();
-					}, 100);
+
+					var xmlhttp4 = new XMLHttpRequest();
+					xmlhttp4.onreadystatechange = function() {
+						if (xmlhttp4.readyState == 4 && xmlhttp4.status == 200)
+						{
+							document.getElementById(\"stats\").innerHTML = xmlhttp4.responseText;
+						}
+					}
+					xmlhttp4.open(\"GET\", \"stats.php\", true);
+					xmlhttp4.send();
+					}, 200);
 				}
 			</script>
 
 		</head>
 
-		<body>
-			<h1>Hey $uname, Look at these movies!</h1>
-<br>
-<table align=\"center\">
-<tr>
-<td style=\"vertical-align:top\"><div id=\"top100\"></div></td><td>     &nbsp;     </td><td style=\"vertical-align:top\"><div id=\"watched\"></div></td></tr>
-</table>
-				</body>
+<body>
+	<h1>Hey $uname, Look at these movies!</h1>
+	<br>
 
-	</html>";
+	<div class=\"pure-g-r\">
+		<div class=\"pure-u-3-3\">
+			<table align=\"center\">
+				<thead align=\"center\"><tr><th>AFI Top 100 Movies</th><th></th><th>Movies You've Watched</th><th></th><th>Stats</th></tr></thead>
+				<tr>
+					<td style=\"vertical-align:top\"><div id=\"top100\"></div></td>
+					<td>&nbsp;</td>
+					<td style=\"vertical-align:top\"><div id=\"watched\"></div></td>
+					<td>&nbsp;</td>
+					<td style=\"vertical-align:top\"><div id=\"stats\"></div></td>
+				</tr>
+			</table>
+			
+		</div>
+
+	</div>
+
+</body>
+
+</html>";
 ?>
