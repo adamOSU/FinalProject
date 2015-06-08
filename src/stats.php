@@ -12,7 +12,7 @@ $uname = $_SESSION["username"];
 $output = "";
 $output = "<table class=\"pure-table pure-table-horizontal\">";
 
-	$mysqli = new mysqli("localhost", "root", "", "testdb");
+	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "dejonga-db", "KlZLMGQrHb0blbkw", "dejonga-db");
 	if ($mysqli->connect_errno)
 	{
 		echo "Connection error ".$mysqli->connect_errno ." ".$mysqli->connect_error;
@@ -67,11 +67,6 @@ $output = "<table class=\"pure-table pure-table-horizontal\">";
 
 	
 	$output .= "<tr><td>Newest movie watched: $maxWatch</td></tr>";
-
-
-
-
-
 
 $output .= "</table>";
 echo $output;

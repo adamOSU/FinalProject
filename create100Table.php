@@ -11,10 +11,11 @@ else
 	echo "Connection worked!";
 }
 
-$createTable = "CREATE TABLE watched (
+$createTable = "CREATE TABLE top100 (
 	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	username VARCHAR(255) NOT NULL,
-	movieid VARCHAR(255) NOT NULL
+	title VARCHAR(255) NOT NULL,
+	rank VARCHAR(255) NOT NULL,
+	year VARCHAR (255) NOT NULL
 	)";
 
 if (mysqli_query($mysqli, $createTable))

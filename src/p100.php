@@ -11,7 +11,7 @@ $uname = $_SESSION["username"];
 	$output = "";
 	$output = "<table class=\"pure-table pure-table-horizontal\"><thead align=\"left\"><tr><th>Rank</th><th>Movie</th><th>Watched?</th></tr></thead>";
 
-	$mysqli = new mysqli("localhost", "root", "", "testdb");
+	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "dejonga-db", "KlZLMGQrHb0blbkw", "dejonga-db");
 	if ($mysqli->connect_errno)
 	{
 		echo "Connection error ".$mysqli->connect_errno ." ".$mysqli->connect_error;

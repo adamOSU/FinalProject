@@ -1,7 +1,7 @@
 <?php
 session_start();
 	
-$mysqli = new mysqli("localhost", "root", "", "testdb"); //establishes connection to the database
+$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "dejonga-db", "KlZLMGQrHb0blbkw", "dejonga-db"); //establishes connection to the database
 if ($mysqli->connect_errno)
 {
 	echo "Connection error ".$mysqli->connect_errno ." ".$mysqli->connect_error;
